@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	master "github.com/sid-008/big-data-project/Master"
+	core "github.com/sid-008/big-data-project/core"
 )
 
 func main() {
@@ -12,7 +12,9 @@ func main() {
 	switch nodeType {
 	case "master":
 		log.Println("Starting Master")
-		master.GetMaster().Start()
+		core.GetMaster().Start()
+	case "ping":
+		core.Client_ping()
 	case "worker":
 		log.Println("Starting Master")
 	default:

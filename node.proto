@@ -1,4 +1,28 @@
-syntax = "proto3"
+syntax = "proto3";
 package core;
 
+option go_package = ".;core";
 
+service HeartBeat {
+  rpc SayHi (HeartBeatRequest) returns (HeartBeatResponse);
+}
+
+message HeartBeatRequest {
+  string msg = 1;
+}
+
+message HeartBeatResponse {
+  string msg = 1;
+}
+
+service Ping {
+  rpc pingpong (pingReq) returns (pongResp);
+}
+
+message pingReq {
+  string ping = 1;
+}
+
+message pongResp {
+  string pong = 1;
+}
