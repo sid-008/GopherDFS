@@ -13,10 +13,17 @@ func main() {
 	case "master":
 		log.Println("Starting Master")
 		core.GetMaster().Start()
+	// case "test_split":
+	// 	core.SplitFile("test.pdf", ".", 1024*1024)
+	// case "test_recomb":
+	// 	core.CombineFiles(".", "./op")
 	case "ping":
 		core.Client_ping()
+	case "test_upload":
+		core.Create_File("test.pdf", "./test")
 	case "worker":
-		log.Println("Starting Master")
+		core.GetDataNode()
+		log.Println("Starting Worker")
 	default:
 		panic("invalid node type")
 	}
